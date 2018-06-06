@@ -31,7 +31,7 @@
             </view>
         </view>
 
-        <view id="register">
+        <!-- <view id="register">
             <form>
                 <button class="textButton" bindtap="login" bindtap="register" decode="{{true}}">注册 |</button>
             </form>
@@ -43,7 +43,7 @@
                 <button class="textButton" bindtap="wxLogin">微信登录
                 </button>
             </form>
-        </view>
+        </view> -->
     </view>
 
 </view>

@@ -104,6 +104,9 @@ Page({
           //client.USR_SubscribeUserParsed(useraccount);
           client.USR_SubscribeUserRaw(useraccount);
         }, 100);
+        console.log('********************');
+        console.log(devid);
+        console.log('555555555555');
         client.USR_PublishRawToDev(devid, [0x5a]);
       }
       console.log('USR_onConnAck', e);
@@ -205,7 +208,7 @@ Page({
           datasts = "数据异常"
         }
 
-        var time = that.getTime(new Date().getTime() / 1000, 'y-M-d h:m');
+        var time = '更新时间:'+that.getTime(new Date().getTime() / 1000, 'y-M-d h:m');
         var s = ''; 
         for (var i = 0; i < e.payload.length; i++) { s = s + e.payload[i].toString(16) + ','; }
         that.setData({

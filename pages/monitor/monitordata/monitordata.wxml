@@ -35,7 +35,7 @@
     </view> -->
     <view class='device-data'>
       <text class='device-name'>{{devicesobj.speed}}</text>
-      <text class='device-data-createTime'>更新时间:{{devicesobj.time}}</text>
+      <text class='device-data-createTime'>{{devicesobj.time}}</text>
     </view>
     </view>
 
@@ -45,7 +45,7 @@
     </view> -->
     <view class='device-data'>
       <text class='device-name'>{{devicesobj.current}}</text>
-      <text class='device-data-createTime'>更新时间:{{devicesobj.time}}</text>
+      <text class='device-data-createTime'>{{devicesobj.time}}</text>
     </view>
     </view>
 
@@ -56,7 +56,7 @@
     </view> -->
     <view class='device-data'>
       <text class='device-name'>{{devicesobj.temperature}}</text>
-      <text class='device-data-createTime'>更新时间:{{devicesobj.time}}</text>
+      <text class='device-data-createTime'>{{devicesobj.time}}</text>
     </view>
     </view>
 
@@ -66,7 +66,7 @@
     </view> -->
     <view class='device-data'>
       <text class='device-name'>{{devicesobj.vspeed}}</text>
-      <text class='device-data-createTime'>更新时间:{{devicesobj.time}}</text>
+      <text class='device-data-createTime'>{{devicesobj.time}}</text>
     </view>
     </view>
     
