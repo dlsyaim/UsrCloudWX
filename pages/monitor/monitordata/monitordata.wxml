@@ -1,4 +1,4 @@
-device-name<view style="background:red"></view>
+<view style="background:red"></view>
 <view class="device-more flex-wrp">
   <view class="avatar flex-item">
     <image class="device-icon" src="/images/yunLogo.png" background-size="cover"></image>

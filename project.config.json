@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
 	"appid": "wxb1956a2401cc4371",
-	"projectname": "UsrCloudWechatApplet_v2.0",
+	"projectname": "UsrCloudWX",
 	"condition": {
 		"search": {
 			"current": -1,
