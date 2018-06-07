@@ -1,5 +1,6 @@
 // pages/scancode/scancode.js
 //用户信息
+var g_scan='';
 var token;
 Page({
 
@@ -7,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    inputTxt: ''
   },
 
   /**
@@ -42,6 +43,42 @@ Page({
   },
 
   /**
+   * 弹出框蒙层截断touchmove事件
+   */
+  preventTouchMove: function () {
+  },
+  /**
+   * 隐藏模态对话框
+   */
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    });
+  },
+  /**
+   * 对话框取消按钮点击事件
+   */
+  onCancel: function () {
+    this.hideModal();
+  },
+  /**
+   * 对话框确认按钮点击事件
+   */
+  onConfirm: function () {
+    wx.setClipboardData({
+      data: g_scan,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            console.log(res.data);  //data
+          }
+        })
+      }
+    })
+    this.hideModal();
+  },
+
+  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
@@ -54,38 +91,45 @@ Page({
     wx.scanCode({
       success: (res) => {
         var result = res.result;
+        g_scan= result;
         console.log(result)
-        wx.request({
-          url: 'https://cloudapi.usr.cn/usrCloud/dev/addDevice',
-          method: 'POST',
-          data: {
-            device: {
-              type: "5",
-              QRcode: result,
-            },
-            token: token
-          },
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
-          success: function (res) {
-            console.log(res)
-            if (res.data.status == 0) {
-              wx.showToast({
-                title: '成功',
-                icon: 'success',
-                duration: 2000
-              })
-            } else {
-              wx.showToast({
-                title: '失败',
-                icon: 'loading',
-                duration: 1000
-              })
-            }
-
-          }
+        //result = "deviceId:356566078064995,verifyCode:085201801008629";
+        this.setData({
+          showModal: true,
+          inputTxt:result
         })
+        
+        // wx.request({
+        //   url: 'https://cloudapi.usr.cn/usrCloud/dev/addDevice',
+        //   method: 'POST',
+        //   data: {
+        //     device: {
+        //       type: "5",
+        //       QRcode: result,
+        //     },
+        //     token: token
+        //   },
+        //   header: {
+        //     'content-type': 'application/json' // 默认值
+        //   },
+        //   success: function (res) {
+        //     console.log(res)
+        //     if (res.data.status == 0) {
+        //       wx.showToast({
+        //         title: '成功',
+        //         icon: 'success',
+        //         duration: 2000
+        //       })
+        //     } else {
+        //       wx.showToast({
+        //         title: '失败',
+        //         icon: 'loading',
+        //         duration: 1000
+        //       })
+        //     }
+
+        //   }
+        // })
 
       },
       fail: (res) => {

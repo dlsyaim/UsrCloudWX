@@ -10,8 +10,8 @@
   </view>
   <view class="device-info flex-item">
     <text class="device-info-list">通讯协议：{{devicesInfo.protocol}}</text>
-    <text class="device-info-list">通讯密码：{{devicesInfo.pass}}</text>
-    <text class="device-info-list">轮询间隔：{{devicesInfo.polling_interval/60}}分钟</text>
+    <!-- <text class="device-info-list">通讯密码：{{devicesInfo.pass}}</text>
+    <text class="device-info-list">轮询间隔：{{devicesInfo.polling_interval/60}}分钟</text> -->
     <text class="device-info-list">在线状态：{{status?"在线":"离线"}}</text>
     <text class="edit">设备地址：{{devicesInfo.address}}</text>
   </view>
@@ -29,43 +29,54 @@
   </view> -->
 </view>
 
-  <view class="device-data-infos">
+  <view class="device-data-infos" wx:if="{{showModal}}">
     <!-- <view class='device--data-icon'>
       <image src='/images/monitor/dataicon.png'></image>
     </view> -->
     <view class='device-data'>
-      <text class='device-name'>{{devicesobj.speed}}</text>
+      <text decode="{{true}}" space="{{true}}" class='device-name'>{{devicesobj.speed}}</text>
       <text class='device-data-createTime'>{{devicesobj.time}}</text>
     </view>
     </view>
 
-      <view class="device-data-infos">
+      <view class="device-data-infos" wx:if="{{showModal}}">
     <!-- <view class='device--data-icon'>
       <image src='/images/monitor/dataicon.png'></image>
     </view> -->
     <view class='device-data'>
-      <text class='device-name'>{{devicesobj.current}}</text>
+      <text decode="{{true}}" space="{{true}}" class='device-name'>{{devicesobj.current}}</text>
       <text class='device-data-createTime'>{{devicesobj.time}}</text>
     </view>
     </view>
 
     
-      <view class="device-data-infos">
+      <view class="device-data-infos" wx:if="{{showModal}}">
     <!-- <view class='device--data-icon'>
       <image src='/images/monitor/dataicon.png'></image>
     </view> -->
     <view class='device-data'>
-      <text class='device-name'>{{devicesobj.temperature}}</text>
+      <text decode="{{true}}" space="{{true}}" class='device-name'>{{devicesobj.temperatureA}}</text>
       <text class='device-data-createTime'>{{devicesobj.time}}</text>
     </view>
     </view>
 
-  <view class="device-data-infos">
+        
+      <view class="device-data-infos" wx:if="{{showModal}}">
     <!-- <view class='device--data-icon'>
       <image src='/images/monitor/dataicon.png'></image>
     </view> -->
     <view class='device-data'>
-      <text class='device-name'>{{devicesobj.vspeed}}</text>
+      <text decode="{{true}}" space="{{true}}" class='device-name'>{{devicesobj.temperatureB}}</text>
+      <text class='device-data-createTime'>{{devicesobj.time}}</text>
+    </view>
+    </view>
+
+  <view class="device-data-infos" wx:if="{{showModal}}">
+    <!-- <view class='device--data-icon'>
+      <image src='/images/monitor/dataicon.png'></image>
+    </view> -->
+    <view class='device-data'>
+      <text decode="{{true}}" space="{{true}}" class='device-name'>{{devicesobj.vspeed}}</text>
       <text class='device-data-createTime'>{{devicesobj.time}}</text>
     </view>
     </view>

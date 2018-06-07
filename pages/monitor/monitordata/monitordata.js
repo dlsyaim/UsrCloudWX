@@ -15,7 +15,8 @@ var devOnlineStatus;
 Page({
   data: {
     status: 0,
-    devicesobj:{byte:"",addresbus:"", speed:"",current:"",temperature:"",
+    devicesobj: {
+      byte: "", addresbus: "", speed: "", current: "", temperatureA: "", temperatureB: "",
     vspeed:"",iot:"",datasts:"",time:""}
   },
   onLoad: function (options) {
@@ -175,21 +176,22 @@ Page({
         var current3 = e.payload[8] * 256 + e.payload[9];
         current3 = current3 / 100;
 
-        var current = '电流 1:' + current1 + '(ma), ' + '电流 2:'
-          + current2 + '(ma), ' + '电流 3:'+current3 + '(ma)';
+        var current = '传感器1:&nbsp;&nbsp;' + current1 + '&nbsp;&nbsp;' + '传感器2:&nbsp;&nbsp;'
+          + current2 + '&nbsp;&nbsp;' + '传感器3:&nbsp;&nbsp;'+current3;
 
         var temperature1 = e.payload[10];
         var temperature2 = e.payload[11];
         var temperature3 = e.payload[12];
         var temperature4 = e.payload[13];
-        var temperature = '温度1:' + temperature1 + '(度), ' + '温度2:'
-          + temperature2 + '(度), ' + '温度3:' + temperature3 + '(度),' + '温度4:' + temperature4 + '(度)';
+        var temperatureA = '温度1:&nbsp;&nbsp;' + temperature1 + '(度)&nbsp;&nbsp;&nbsp;' + '温度2:&nbsp;&nbsp;'+ temperature2 + '(度)&nbsp;&nbsp;'  
+        var temperatureB = '温度3:&nbsp;&nbsp;' + temperature3 + '(度)&nbsp;&nbsp;&nbsp;' + '温度4:&nbsp;&nbsp;' + temperature4 + '(度)';  
+      
 
         var vspeedx = e.payload[14]/10;
         var vspeedy = e.payload[15]/10;
         var vspeedz = e.payload[16]/10;
-        var vspeed = 'X:' + vspeedx + '(mm/s), ' + 'Y:'
-          + vspeedy + '(mm/s), ' + 'Z:' + vspeedz + '(mm/s)';
+        var vspeed = 'X轴:&nbsp;&nbsp;' + vspeedx + '(mm/s)&nbsp;&nbsp;' + 'Y轴:&nbsp;&nbsp;'
+          + vspeedy + '(mm/s)&nbsp;&nbsp;' + 'Z轴:&nbsp;&nbsp;' + vspeedz + '(mm/s)';
 
         var iot = e.payload[17];
         if(iot==0){iot="未连接"}
@@ -217,11 +219,13 @@ Page({
           'devicesobj.addressbus': addressbus,
           "devicesobj.speed": speed,
           "devicesobj.current": current,
-          "devicesobj.temperature": temperature,
+          "devicesobj.temperatureA": temperatureA,
+          "devicesobj.temperatureB": temperatureB,
           "devicesobj.vspeed": vspeed,
           "devicesobj.iot": iot,
           "devicesobj.datasts":datasts,
-          "devicesobj.time":time
+          "devicesobj.time":time,
+          showModal: true,
           
         });
       }

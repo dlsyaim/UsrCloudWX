@@ -1,1 +1,14 @@
 <button  type="primary" bindtap="scanCode">扫码添加设备</button>
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">二维码参数</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <input placeholder-class="input-holder" rows="" cols="" bindinput="inputChange" class="input" value="{{inputTxt}}" name="inpuTxt" placeholder="二维码参数"></input>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">复制</view>
+  </view>
+</view>
